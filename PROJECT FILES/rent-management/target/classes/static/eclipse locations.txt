@@ -1,0 +1,3 @@
+Eclipse File Locations:
+
+Installation Folder: C:\Users\abkar\eclipse\java-2022-03

@@ -1,0 +1,56 @@
+<div layout:decorate="~{index}" layout:fragment="content">
+    <h1 class="mt-4">Explore</h1>
+    <p class="lead">Search for houses in your region</p>
+    <hr>
+
+    <form action="/" method="post" th:object="${selectedStationBean}">
+        <div class="form-group row">
+            <label class="col-sm-2" for="station">Select your city</label>
+            <div class="col-sm-10">
+                <select class="form-control form-control-sm" id="station" th:field="*{station}">
+                    <option th:each="station : ${stations}"
+                            th:text="${station.city}"
+                            th:value="${station.id}">
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <span class="col-sm-2"></span>
+            <div class="col-sm-10">
+                <input class="btn btn-primary" type="submit" value="Search">
+            </div>
+        </div>
+    </form>
+
+    <div th:if="${houses != null}">
+        <hr>
+        <div th:switch="${housesListSize}" th:with="housesListSize=${#lists.size(houses)}">
+            <p class="text-center info" th:case="0">0 houses found.<br>There are no houses at this station.</p>
+            <div th:case="*">
+                <table class="table table-borderless table-hover table-sm">
+                    <caption class="text-center info"
+                             th:text="${housesListSize + (housesListSize == 1 ? ' house' : ' houses') + ' found'}"></caption>
+                    <thead>
+                    <tr>
+                        <th>House Number</th>
+                        <th>Price</th>
+                        <th>street (km)</th>
+                        <th>Model</th>
+                        <th>Station</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="house : ${houses}">
+                        <td th:text="${house.houseNr}"></td>
+                        <td th:text="${house.Price}"></td>
+                        <td th:text="${house.street}"></td>
+                        <td th:text="${house.model}"></td>
+                        <td th:text="${house.station?.city}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

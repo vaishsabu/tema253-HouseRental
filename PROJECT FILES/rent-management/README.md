@@ -61,15 +61,12 @@ Many fields of form backing beans and entity classes contain validation steps do
 
 ## - Roles
 
-There are three access types (user roles) in this application:
+There are two access types (user roles) in this application:
 
-### Employee
+### Owner
 
 By logging in as a user that has the role of `ROLE_EMPLOYEE` the user can issue new rentals. Also, the employee has the possibility to finish those. Employees can access all paths starting with `/employee/**`.
 
-### Admin
-
-Users with the role of `ROLE_ADMIN` have access to several REST endpoints. Admins can access all paths starting with `/admin/**`. Admins cannot visit employee roles and vice versa employees do not have access to the REST endpoints.
 
 ### Public
 
@@ -81,8 +78,8 @@ Public users do not have a role defined in the code. They have access to all pat
 
 To keep things simple, two users were created with Spring Security HTTP basic auth. _(username, password)_
 
-- `ROLE_EMPLOYEE`: This user has (emp, emp) as credentials.
-- `ROLE_ADMIN`: This user has (admin, admin) as credentials.
+- `ROLE_OWNER`: This user has (emp, emp) as credentials.
+- `ROLE_PUBLIC`: This user has (admin, admin) as credentials.
 
 ### Redirection
 

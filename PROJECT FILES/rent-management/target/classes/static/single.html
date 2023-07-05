@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Page</title>
+  <link rel="stylesheet" href="single.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:ital,wght@0,400;0,500;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    .rent-button {
+      width: 100px;
+      height: 30px;
+      background-color: #A544A1;
+      color: #FFF;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-top: 20px;
+      position: relative;
+      left: 28%;
+      padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .rent-button:hover {
+  background-color: #D57BD7; 
+    }
+
+    .dropdown {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .dropdown label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .dropdown input[type="date"] {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .price {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="property-page">
+    <div class="image-section">
+      <img src="images/img2.jpg" alt="Property Image">
+    </div>
+    <div class="details-section">
+      <h2>The Palace</h2>
+      <p>Location: Hyderabad, India</p>
+      <p>Price: Rs.52,000</p>
+      <p>4BHK</p>
+
+      <div class="rent-button" onclick="showDropdown()">Rent</div>
+      <div class="dropdown" id="dropdown">
+        <label for="from-date">From Date:</label>
+        <input type="date" id="from-date">
+        <label for="to-date">To Date:</label>
+        <input type="date" id="to-date">
+      </div>
+
+      <div class="price" id="price"></div>
+
+      <button class="btn">
+        <i class="fa-solid fa-lock"></i>
+        <a href="checkout.html"><span class="btn-text">Book Securely</span></a>
+      </button>
+      
+      
+    </div>
+
+  <script>
+    function showDropdown() {
+      var dropdown = document.getElementById("dropdown");
+      dropdown.style.display = "block";
+    }
+
+    function calculatePrice() {
+      var fromDate = new Date(document.getElementById("from-date").value);
+      var toDate = new Date(document.getElementById("to-date").value);
+      var days = Math.ceil((toDate - fromDate) / (1000 * 60 * 60 * 24));
+      var price = days * 5000;
+      document.getElementById("price").innerText = "Price: Rs." + price;
+    }
+
+    document.getElementById("to-date").addEventListener("change", calculatePrice);
+    var startDatePicker = document.getElementById("startDatePicker");
+    var startDate = startDatePicker.value;
+
+    var endDatePicker = document.getElementById("endDatePicker");
+    var endDate = endDatePicker.value;
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+.property-page {
+    display: flex;
+    margin: 20px;
+    font-family: Poppins;
+}
+  
+.image-section {
+    flex: 1;
+}
+  
+.image-section img {
+    max-width: 100%;
+}
+  
+.details-section {
+    flex: 1;
+    /* padding-left: 20px; */
+    border-radius: 15px;
+    background-image: linear-gradient(138deg, #FFF 0%, #A544A1 100%);
+    padding: 20px;
+    height: 200px;
+    max-width:350px;
+    box-shadow: 1px 10px 11px 0px rgba(97, 1, 93, 0.45);
+    position: relative;
+    left: -30%;
+
+}
+  
+.details-section h2 {
+    font-size: 24px;
+    margin-top: 0;
+    color: #000;
+}
+  
+.details-section p {
+    font-size: 18px;
+    color: #666;
+    /* margin: 10px 0; */
+}
+body {
+    background-image: url(images/skyline.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+.image-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+  
+  .image-section img {
+    width: 500px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+    transition: transform 0.3s ease;
+}
+  
+  .image-section:hover img {
+    transform: scale(1.2);
+}
+  
+.datepicker {
+    font-family: "Poppins", sans-serif;
+    color: #333;
+}
+
+.datepicker .datepicker-header {
+    background-color: #A544A1;
+    color: #FFF;
+}
+
+.datepicker .datepicker-header .prev-btn,
+.datepicker .datepicker-header .next-btn {
+  background-color: #A544A1;
+  color: #FFF;
+  border: none;
+  font-size: 20px;
+}
+
+.datepicker .datepicker-table {
+    background-color: #FFF;
+}
+  .datepicker .datepicker-table td {
+    padding: 10px;
+}
+  .datepicker .datepicker-table td.is-selected {
+    background-color: #A544A1;
+    color: #FFF;
+}
+  .datepicker .datepicker-table td:hover {
+    background-color: #D57BD7; /* Adjust the hover color as needed */
+}
+  
+  
+.btn {
+    position: relative;
+    left: 27%;
+    background-color: #A544A1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+  
+.btn-text {
+    margin-left: 5px;
+}
+  
